@@ -1,4 +1,5 @@
 # Simple simdjson demo for vcpkg
+[![Windows-CI](https://github.com/simdjson/simdjson-vcpkg/actions/workflows/ci.yml/badge.svg)](https://github.com/simdjson/simdjson-vcpkg/actions/workflows/ci.yml)
 
 This project builds a simple executable that
 depends on simdjson, under Windows. 
