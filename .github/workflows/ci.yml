@@ -24,7 +24,10 @@ jobs:
         vcpkgJsonGlob: "**/vcpkg.json"
         vcpkgDirectory: "${{ github.workspace }}/vcpkg"
         vcpkgGitCommitId: "962e5e39f8a25f42522f51fffc574e05a3efd26b"
-        appendedCacheKey: ${{ hashFiles( '**/vcpkg.json' ) }}
+    - name: Install curl
+      run: |
+        $VCPKG_ROOT/vcpkg install simdjson:x64-windows
+      shell: bash
     - name: Configure
       run:  cmake -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=${{ matrix.triplet }} -B build
     - name: Build 
