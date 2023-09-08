@@ -1,0 +1,26 @@
+name: Windows-CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Windows
+            os: windows-latest
+            triplet: x64-windows-release
+    env:
+      VCPKG_ROOT: ${{ github.workspace }}/vcpkg
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
+    - name: Setup vcpkg
+      uses: lukka/run-vcpkg@v11
+    - name: Configure
+      run:  cmake -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=${{ matrix.triplet }} -B build
+    - name: Build 
+      run: cmake --build build --verbose
