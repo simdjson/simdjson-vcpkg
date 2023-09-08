@@ -1,0 +1,1 @@
+Simple simdjson demo for vcpkg.
