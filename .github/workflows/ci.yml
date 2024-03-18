@@ -27,7 +27,7 @@ jobs:
         vcpkgGitCommitId: "fba75d09065fcc76a25dcf386b1d00d33f5175af"
     - name: Install simdjson
       run: |
-        $VCPKG_ROOT/vcpkg install simdjson:x64-windows
+        $VCPKG_ROOT/vcpkg install simdjson
       shell: bash
     - name: Configure
       run:  cmake -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake -B build
