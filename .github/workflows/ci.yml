@@ -12,6 +12,8 @@ jobs:
         include:
           - name: Windows
             os: windows-latest
+          - name: Linux
+            os: ubuntu-latest
     env:
       VCPKG_ROOT: ${{ github.workspace }}/vcpkg
     steps:
@@ -22,7 +24,7 @@ jobs:
       with:
         vcpkgJsonGlob: "**/vcpkg.json"
         vcpkgDirectory: "${{ github.workspace }}/vcpkg"
-        vcpkgGitCommitId: "962e5e39f8a25f42522f51fffc574e05a3efd26b"
+        vcpkgGitCommitId: "fba75d09065fcc76a25dcf386b1d00d33f5175af"
     - name: Install simdjson
       run: |
         $VCPKG_ROOT/vcpkg install simdjson:x64-windows
