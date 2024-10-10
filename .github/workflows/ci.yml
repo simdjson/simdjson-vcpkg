@@ -1,4 +1,4 @@
-name: Windows-CI
+name: Windows-Linux-CI
 
 on: [push, pull_request]
 
