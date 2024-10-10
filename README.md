@@ -2,10 +2,10 @@
 [![Windows-Linux-CI](https://github.com/simdjson/simdjson-vcpkg/actions/workflows/ci.yml/badge.svg)](https://github.com/simdjson/simdjson-vcpkg/actions/workflows/ci.yml)
 
 This project builds a simple executable that
-depends on simdjson, under Windows. 
+depends on simdjson, under Windows and Linux. 
 
 After installing vcpkg and installing
-simdjson through it (e.g., `vcpkg install simdjson:x64-windows`), you can build with CMake using a couple of command lines.
+simdjson through it (e.g., `vcpkg install simdjson:x64-windows` or simply `vcpkg install simdjson`), you can build with CMake using a couple of command lines.
 
 You need to pass the location of your `vcpkg/scripts/buildsystems/vcpkg.cmake`  file to CMake:
 
