@@ -10,10 +10,18 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - name: Windows
+          - name: Windows (static)
             os: windows-latest
-          - name: Linux
+            shared: OFF
+          - name: Windows (shared)
+            os: windows-latest
+            shared: ON
+          - name: Linux (static)
             os: ubuntu-latest
+            shared: OFF
+          - name: Linux (shared)
+            os: ubuntu-latest
+            shared: ON
     env:
       VCPKG_ROOT: ${{ github.workspace }}/vcpkg
     steps:
@@ -30,6 +38,6 @@ jobs:
         $VCPKG_ROOT/vcpkg install simdjson
       shell: bash
     - name: Configure
-      run:  cmake -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake -B build
+      run:  cmake -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake -DBUILD_SHARED_LIBS=${{ matrix.shared }} -B build
     - name: Build 
       run: cmake --build build --verbose
