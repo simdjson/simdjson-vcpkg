@@ -18,13 +18,13 @@ jobs:
       VCPKG_ROOT: ${{ github.workspace }}/vcpkg
     steps:
     - name: checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v6
     - name: Setup vcpkg
       uses: lukka/run-vcpkg@v11
       with:
         vcpkgJsonGlob: "**/vcpkg.json"
         vcpkgDirectory: "${{ github.workspace }}/vcpkg"
-        vcpkgGitCommitId: "fba75d09065fcc76a25dcf386b1d00d33f5175af"
+        vcpkgGitCommitId: "62159a45e18f3a9ac0548628dcaf74fcb60c6ff9"
     - name: Install simdjson
       run: |
         $VCPKG_ROOT/vcpkg install simdjson
